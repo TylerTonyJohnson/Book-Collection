@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Library</title>
+    <meta name="description" content="SplinterBL Boilerplate" />
+    <meta name="author" content="SplinterBL" />
+    <meta property="og:title" content="SplinterBL Boilerplate" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.SplinterBL.us" />
+    <meta property="og:description" content="SplinterBL Boilerplate" />
+    <meta property="og:image" content="image.png" />
+
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <!-- HEADER -->
+      <h1 id="title">Books I want to read</h1>
+      <div id="button-bar" class="button-bar">
+        <a id="clear-button">Clear All</a>
+        <a id="load-button">Load</a>
+        <a id="save-button">Save</a>
+      </div>
+    </header>
+    <main>
+      <!-- MAIN -->
+      <div id="book-list" class="book-list">
+        <!-- Book list is inserted here -->
+        
+      </div>
+    </main>
+    <footer>
+      <!-- FOOTER -->
+    </footer>
+
+    <!-- Templates -->
+
+      <!-- Book Card Template -->
+      <div id="book-template" class="book" hidden>
+        <span name="close" class="material-icons close" onclick="bookCollection.remove(event)">close</span>
+        <h2 name="title" class="book-text" contenteditable="true" oninput="editContent(event)">Title</h2>
+        <p name="author" class="book-text" contenteditable="true" oninput="editContent(event)">Author</p>
+        <p name="pages" class="book-text" contenteditable="true" oninput="editContent(event)">0</p>
+        <div class="read-div">
+          <input name="disp-read" type="checkbox" onchange="checkChange(event)"></input>
+          <label for="disp-read">Unknown</label>
+        </div>
+      </div>
+      
+
+      <!-- Add Button Template -->
+      <div id="add-book-container-template" class="add-book-container" hidden>
+        <button id="add-book-button" class="add-book-button" type="button" onclick="addBtnVisible(false)">
+          <span id="add-icon" class="material-icons centered">add</span>
+        </button>
+        <span
+          name="add-book-controls"
+          class="material-icons close fade"
+          onclick="addBtnVisible(true)"
+          >close</span
+        >
+        <input
+          id="title-input-template"
+          name="add-book-controls"
+          type="text"
+          class="fade"
+          required
+          placeholder="Title"
+          autocomplete="off"
+          autofocus
+        />
+        <input
+          id="author-input-template"
+          name="add-book-controls"
+          class="fade"
+          type="text"
+          placeholder="Author"
+          autocomplete="off"
+        />
+        <input
+          id="pages-input-template"
+          name="add-book-controls"
+          class="fade"
+          type="number"
+          onkeydown="return event.keyCode !== 69"
+          placeholder="pages"
+          autocomplete="off"
+        />
+        <div class="read-div fade" name="add-book-controls">
+          <input id="read-input" name="read-input" type="checkbox" />
+          <span class="slider"></span>
+          <label for="read-input">Finished</label>
+        </div>
+        <button
+          name="add-book-controls"
+          class="submit-button fade"
+          type="button"
+          onclick="bookCollection.submitBook(event)"
+        >
+          Add Book
+        </button>
+      </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
